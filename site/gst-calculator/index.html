@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GST Calculator for Medicines – MRP to CGST/SGST (Free) | DawaBill</title>
+<meta name="description" content="Free GST calculator for medicines: find taxable value, CGST and SGST from MRP (GST inclusive) or add GST to a price. 0%, 5%, 12%, 18% rates. Hindi & English.">
+<link rel="canonical" href="https://wildsouleast.github.io/dawabill/gst-calculator/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f7a4f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DawaBill">
+<meta property="og:title" content="GST Calculator for Medicines – MRP to CGST/SGST (Free) | DawaBill">
+<meta property="og:description" content="Free GST calculator for medicines: find taxable value, CGST and SGST from MRP (GST inclusive) or add GST to a price. 0%, 5%, 12%, 18% rates. Hindi & English.">
+<meta property="og:url" content="https://wildsouleast.github.io/dawabill/gst-calculator/">
+<meta property="og:image" content="https://wildsouleast.github.io/dawabill/og.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "GST Calculator for Medicines", "url": "https://wildsouleast.github.io/dawabill/gst-calculator/", "description": "Free GST calculator for medicines: find taxable value, CGST and SGST from MRP (GST inclusive) or add GST to a price. 0%, 5%, 12%, 18% rates. Hindi & English.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "inLanguage": ["en-IN", "hi-IN"], "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I find GST from the MRP of a medicine?", "acceptedAnswer": {"@type": "Answer", "text": "MRP includes GST. Divide by (1 + rate/100). For ₹105 at 5%: taxable value = 105 ÷ 1.05 = ₹100, GST = ₹5 (CGST ₹2.50 + SGST ₹2.50)."}}, {"@type": "Question", "name": "How do I add GST to a price?", "acceptedAnswer": {"@type": "Answer", "text": "Choose “Excludes GST”. GST = price × rate ÷ 100. For ₹100 at 12%, GST is ₹12 and the total is ₹112."}}, {"@type": "Question", "name": "Why is GST split into CGST and SGST?", "acceptedAnswer": {"@type": "Answer", "text": "For a sale inside the same state, half the GST goes to the Centre (CGST) and half to the State (SGST). A 5% rate becomes 2.5% + 2.5%. Sales to another state use IGST instead."}}, {"@type": "Question", "name": "What GST rate applies to medicines now?", "acceptedAnswer": {"@type": "Answer", "text": "After the GST Council's 56th meeting (effective 22 September 2025) most medicines are at 5% and some life-saving drugs at nil. Always confirm the rate for the product's HSN code."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site noprint"><div class="wrap">
+<a class="logo" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f7a4f"/><path d="M9 7h10l4 4v14H9z" fill="#fff"/><path d="M19 7v4h4" fill="#cfe9dc"/><rect x="14" y="13" width="4" height="10" rx="1" fill="#0f7a4f"/><rect x="11" y="16" width="10" height="4" rx="1" fill="#0f7a4f"/></svg><span>Dawa<b>Bill</b></span></a>
+<nav class="main" aria-label="Main"><a href="../">Bill Maker</a><a href="../gst-calculator/" aria-current=page>GST Calculator</a><a href="../medicine-expiry-checker/">Expiry Checker</a></nav>
+<button id="langBtn" class="lang" type="button">हिंदी</button>
+</div></header>
+<main id="main">
+
+<div class="wrap">
+<section class="hero"><h1>GST Calculator for Medicines (MRP Inclusive &amp; Exclusive)</h1>
+<p>Enter an amount, pick the GST rate and see the taxable value, CGST, SGST and total instantly. Built for chemists and pharmacy students. दवाओं के लिए GST कैलकुलेटर।</p></section>
+<!-- AD SLOT: gst-top — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="gst-top" aria-hidden="true">Advertisement</div>
+<section class="card" aria-labelledby="hG"><h2 id="hG" data-i18n="gstCalc">GST calculator</h2>
+<div class="grid g3">
+<div><label for="gAmt" data-i18n="amountLbl">Amount (₹)</label><input id="gAmt" type="number" inputmode="decimal" min="0" step="any"></div>
+<div><label for="gRate" data-i18n="rateLbl">GST rate</label><select id="gRate"><option value="0">0%</option><option value="5">5%</option><option value="12">12%</option><option value="18">18%</option></select></div>
+<div><span class="muted" style="display:block;font-size:.82rem;font-weight:600;margin-bottom:3px" data-i18n="modeLbl">Amount type</span><div class="seg" role="group"><button type="button" data-mode="incl" aria-pressed="true" data-i18n="incl">Includes GST (MRP)</button><button type="button" data-mode="excl" aria-pressed="false" data-i18n="excl">Excludes GST</button></div></div>
+</div>
+<div class="result" id="gOut" style="margin-top:14px" aria-live="polite"></div>
+<p class="words" id="gWords"></p>
+<h3 style="font-size:1rem;margin:14px 0 6px" data-i18n="allRates">Same amount at every rate</h3>
+<div class="tbl-wrap"><table class="simple" id="gTable"></table></div>
+</section>
+<!-- AD SLOT: gst-middle — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="gst-middle" aria-hidden="true">Advertisement</div>
+<article class="content">
+<h2>GST formulas used</h2>
+<p><b>GST inclusive (MRP):</b> taxable value = amount × 100 ÷ (100 + rate); GST = amount − taxable value.<br><b>GST exclusive:</b> GST = amount × rate ÷ 100; total = amount + GST.<br>CGST = SGST = GST ÷ 2. Amounts are rounded to paise.</p>
+<h2 lang="hi">GST का फ़ॉर्मूला</h2>
+<p lang="hi"><b>GST सहित (MRP):</b> कर योग्य राशि = राशि × 100 ÷ (100 + दर)। <b>GST के बिना:</b> GST = राशि × दर ÷ 100। CGST = SGST = GST ÷ 2।</p>
+<h2>FAQ</h2>
+<details><summary>How do I find GST from the MRP of a medicine?</summary><p>MRP includes GST. Divide by (1 + rate/100). For ₹105 at 5%: taxable value = 105 ÷ 1.05 = ₹100, GST = ₹5 (CGST ₹2.50 + SGST ₹2.50).</p><p class="hi" lang="hi"><b>दवा के MRP से GST कैसे निकालें?</b><br>MRP में GST शामिल है। MRP को (1 + दर/100) से भाग दें। ₹105 पर 5%: कर योग्य राशि = 105 ÷ 1.05 = ₹100, GST = ₹5 (CGST ₹2.50 + SGST ₹2.50)।</p></details><details><summary>How do I add GST to a price?</summary><p>Choose “Excludes GST”. GST = price × rate ÷ 100. For ₹100 at 12%, GST is ₹12 and the total is ₹112.</p><p class="hi" lang="hi"><b>किसी कीमत में GST कैसे जोड़ें?</b><br>“GST अलग से जोड़ें” चुनें। GST = कीमत × दर ÷ 100। ₹100 पर 12% GST ₹12 और कुल ₹112।</p></details><details><summary>Why is GST split into CGST and SGST?</summary><p>For a sale inside the same state, half the GST goes to the Centre (CGST) and half to the State (SGST). A 5% rate becomes 2.5% + 2.5%. Sales to another state use IGST instead.</p><p class="hi" lang="hi"><b>GST, CGST और SGST में क्यों बँटता है?</b><br>एक ही राज्य के अंदर बिक्री पर आधा GST केंद्र (CGST) और आधा राज्य (SGST) को जाता है। 5% = 2.5% + 2.5%। दूसरे राज्य में बिक्री पर IGST लगता है।</p></details><details><summary>What GST rate applies to medicines now?</summary><p>After the GST Council's 56th meeting (effective 22 September 2025) most medicines are at 5% and some life-saving drugs at nil. Always confirm the rate for the product's HSN code.</p><p class="hi" lang="hi"><b>अभी दवाओं पर कितना GST है?</b><br>GST काउंसिल की 56वीं बैठक (22 सितंबर 2025 से) के बाद ज़्यादातर दवाएँ 5% पर और कुछ जीवनरक्षक दवाएँ 0% पर हैं। हर प्रोडक्ट का रेट उसके HSN कोड से ज़रूर जाँचें।</p></details>
+<p class="note">Source for the September 2025 rate change: <a href="https://gstcouncil.gov.in/sites/default/files/2025-09/press_release_press_information_bureau_0.pdf" rel="noopener">GST Council 56th meeting press release (PIB)</a>. This calculator is a tool, not tax advice.</p>
+<p>Need a full bill? Use the <a href="../">free medical bill generator</a>.</p>
+</article>
+</div>
+</main>
+<footer class="site noprint"><div class="wrap cols">
+<div><b>DawaBill</b> — free billing tools for Indian medical stores and pharmacies. Works in your browser; your bills stay on your device.<br><span class="muted" style="color:#9fb8ab">Tools only. Nothing on this site is medical advice.</span></div>
+<div><b>Tools</b><ul><li><a href="../">Medical bill generator</a></li><li><a href="../gst-calculator/">GST calculator for medicines</a></li><li><a href="../medicine-expiry-checker/">Medicine expiry checker</a></li></ul></div>
+<div><b>Site</b><ul><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy-policy/">Privacy policy</a></li><li><a href="../terms/">Terms of use</a></li></ul></div>
+<div style="grid-column:1/-1;color:#9fb8ab">© <span id="yr">2026</span> DawaBill</div>
+</div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="print-root"></div>
+<script src="../i18n.js"></script><script src="../calc.js"></script><script src="../common.js"></script><script src="../gst.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medicine Expiry Date Checker & Stock Expiry List (Free) | DawaBill</title>
+<meta name="description" content="Free medicine expiry date checker and stock expiry list for chemists: enter MM/YY to see days left, track expired and near-expiry batches (30/90/180 days), export CSV.">
+<link rel="canonical" href="https://wildsouleast.github.io/dawabill/medicine-expiry-checker/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f7a4f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DawaBill">
+<meta property="og:title" content="Medicine Expiry Date Checker & Stock Expiry List (Free) | DawaBill">
+<meta property="og:description" content="Free medicine expiry date checker and stock expiry list for chemists: enter MM/YY to see days left, track expired and near-expiry batches (30/90/180 days), export CSV.">
+<meta property="og:url" content="https://wildsouleast.github.io/dawabill/medicine-expiry-checker/">
+<meta property="og:image" content="https://wildsouleast.github.io/dawabill/og.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Medicine Expiry Checker", "url": "https://wildsouleast.github.io/dawabill/medicine-expiry-checker/", "description": "Free medicine expiry date checker and stock expiry list for chemists: enter MM/YY to see days left, track expired and near-expiry batches (30/90/180 days), export CSV.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "inLanguage": ["en-IN", "hi-IN"], "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does EXP 08/26 on a medicine strip mean?", "acceptedAnswer": {"@type": "Answer", "text": "It shows the expiry month and year: August 2026. Shops commonly treat stock as valid until the last day of that month, and that is how this tool counts the days. Always follow the label and your pharmacist's guidance."}}, {"@type": "Question", "name": "Why keep a stock expiry list?", "acceptedAnswer": {"@type": "Answer", "text": "So expired batches are removed from the shelf and near-expiry stock can be returned to the distributor or sold first (FEFO – first expiry, first out) in time."}}, {"@type": "Question", "name": "Is my stock list uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The list is stored only in your browser on this device. Use “Download CSV” to keep a copy or open it in Excel."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site noprint"><div class="wrap">
+<a class="logo" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f7a4f"/><path d="M9 7h10l4 4v14H9z" fill="#fff"/><path d="M19 7v4h4" fill="#cfe9dc"/><rect x="14" y="13" width="4" height="10" rx="1" fill="#0f7a4f"/><rect x="11" y="16" width="10" height="4" rx="1" fill="#0f7a4f"/></svg><span>Dawa<b>Bill</b></span></a>
+<nav class="main" aria-label="Main"><a href="../">Bill Maker</a><a href="../gst-calculator/">GST Calculator</a><a href="../medicine-expiry-checker/" aria-current=page>Expiry Checker</a></nav>
+<button id="langBtn" class="lang" type="button">हिंदी</button>
+</div></header>
+<main id="main">
+
+<div class="wrap">
+<section class="hero"><h1>Medicine Expiry Date Checker &amp; Stock Expiry List</h1>
+<p>Type the expiry printed on the strip (MM/YY) to see how many days are left, or build a stock list that sorts batches by expiry and flags what has expired or expires within 30, 90 or 180 days. दवा एक्सपायरी चेकर।</p></section>
+<!-- AD SLOT: expiry-top — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="expiry-top" aria-hidden="true">Advertisement</div>
+<section class="card noprint" aria-labelledby="hQ"><h2 id="hQ" data-i18n="quick">Quick check</h2>
+<div class="grid g2"><div><label for="qExp" data-i18n="expInput">Expiry on strip (MM/YY)</label><input id="qExp" inputmode="numeric" placeholder="MM/YY" maxlength="7"></div>
+<div style="display:flex;align-items:flex-end;min-height:44px" id="qOut" aria-live="polite"></div></div>
+</section>
+<section class="card" aria-labelledby="hS"><h2 id="hS" data-i18n="expTitle">Medicine expiry list</h2>
+<form id="stockForm" class="grid g4 noprint" autocomplete="off">
+<div><label for="sName" data-i18n="name">Medicine</label><input id="sName"></div>
+<div><label for="sBatch" data-i18n="batch">Batch no.</label><input id="sBatch"></div>
+<div><label for="sExp" data-i18n="expiry">Expiry (MM/YY)</label><input id="sExp" inputmode="numeric" placeholder="MM/YY" maxlength="7"></div>
+<div><label for="sQty" data-i18n="qty">Qty</label><input id="sQty" inputmode="numeric"></div>
+<div style="grid-column:1/-1"><button type="button" id="addStock" class="btn" data-i18n="addStock">+ Add to list</button></div>
+</form>
+<div class="stats" id="stats" style="margin:14px 0"></div>
+<div class="seg noprint" role="group" aria-label="Filter" style="flex-wrap:wrap;margin-bottom:8px"><button type="button" data-f="all" aria-pressed="true" data-i18n="all">All</button><button type="button" data-f="expired" aria-pressed="false" data-i18n="st_expired">Expired</button><button type="button" data-f="d30" aria-pressed="false" data-i18n="st_d30">≤ 30 days</button><button type="button" data-f="d90" aria-pressed="false" data-i18n="st_d90">≤ 90 days</button></div>
+<div class="tbl-wrap"><table class="simple"><thead><tr><th data-i18n="name">Medicine</th><th data-i18n="exp">Exp</th><th class="r" data-i18n="qty">Qty</th><th data-i18n="status">Status</th><th><span class="skip">Remove</span></th></tr></thead><tbody id="stockBody"></tbody></table></div>
+<div class="row-actions noprint"><button type="button" id="btnCsv" class="btn ghost small" data-i18n="exportCsv">Download CSV</button><button type="button" id="btnPrintList" class="btn ghost small" data-i18n="printList">Print list</button><button type="button" id="btnClear" class="btn small danger" data-i18n="clearAll">Clear list</button></div>
+</section>
+<!-- AD SLOT: expiry-middle — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="expiry-middle" aria-hidden="true">Advertisement</div>
+<article class="content noprint">
+<h2>How to use the expiry checker</h2>
+<ol><li>Enter the expiry from the strip or box as MM/YY (for example 03/27).</li><li>Add each batch with its quantity to build your list.</li><li>Check the red (expired) and orange (≤ 30 days) rows first, then download CSV or print the list for returns.</li></ol>
+<h2 lang="hi">एक्सपायरी चेकर कैसे इस्तेमाल करें</h2>
+<ol lang="hi"><li>पत्ते या डिब्बे पर लिखी एक्सपायरी MM/YY में डालें (जैसे 03/27)।</li><li>हर बैच को मात्रा के साथ लिस्ट में जोड़ें।</li><li>पहले लाल (एक्सपायर्ड) और नारंगी (≤ 30 दिन) लाइनें देखें, फिर रिटर्न के लिए CSV या प्रिंट लें।</li></ol>
+<h2>FAQ</h2>
+<details><summary>What does EXP 08/26 on a medicine strip mean?</summary><p>It shows the expiry month and year: August 2026. Shops commonly treat stock as valid until the last day of that month, and that is how this tool counts the days. Always follow the label and your pharmacist's guidance.</p><p class="hi" lang="hi"><b>दवा के पत्ते पर EXP 08/26 का क्या मतलब है?</b><br>यह एक्सपायरी का महीना और साल है: अगस्त 2026। दुकानों में आम तौर पर उस महीने के आख़िरी दिन तक मान्य माना जाता है, और यह टूल इसी तरह दिन गिनता है। हमेशा लेबल और फार्मासिस्ट की सलाह मानें।</p></details><details><summary>Why keep a stock expiry list?</summary><p>So expired batches are removed from the shelf and near-expiry stock can be returned to the distributor or sold first (FEFO – first expiry, first out) in time.</p><p class="hi" lang="hi"><b>स्टॉक एक्सपायरी लिस्ट क्यों रखें?</b><br>ताकि एक्सपायर्ड बैच शेल्फ़ से हटें और जल्दी एक्सपायर होने वाला माल समय पर डिस्ट्रीब्यूटर को लौटाया या पहले बेचा जा सके (FEFO)।</p></details><details><summary>Is my stock list uploaded anywhere?</summary><p>No. The list is stored only in your browser on this device. Use “Download CSV” to keep a copy or open it in Excel.</p><p class="hi" lang="hi"><b>क्या मेरी स्टॉक लिस्ट कहीं अपलोड होती है?</b><br>नहीं। लिस्ट सिर्फ इसी डिवाइस के ब्राउज़र में रहती है। कॉपी रखने के लिए “CSV डाउनलोड” करें, Excel में खुल जाती है।</p></details>
+<p class="note">This is a stock-management tool. It does not tell you whether a medicine is safe to take — never use expired medicine; ask a pharmacist or doctor.</p>
+<p>Making a bill? Try the <a href="../">free medical bill generator</a> — it also warns when an expired batch is added.</p>
+</article>
+</div>
+</main>
+<footer class="site noprint"><div class="wrap cols">
+<div><b>DawaBill</b> — free billing tools for Indian medical stores and pharmacies. Works in your browser; your bills stay on your device.<br><span class="muted" style="color:#9fb8ab">Tools only. Nothing on this site is medical advice.</span></div>
+<div><b>Tools</b><ul><li><a href="../">Medical bill generator</a></li><li><a href="../gst-calculator/">GST calculator for medicines</a></li><li><a href="../medicine-expiry-checker/">Medicine expiry checker</a></li></ul></div>
+<div><b>Site</b><ul><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li><li><a href="../privacy-policy/">Privacy policy</a></li><li><a href="../terms/">Terms of use</a></li></ul></div>
+<div style="grid-column:1/-1;color:#9fb8ab">© <span id="yr">2026</span> DawaBill</div>
+</div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="print-root"></div>
+<script src="../i18n.js"></script><script src="../calc.js"></script><script src="../common.js"></script><script src="../expiry.js"></script>
+</body>
+</html>

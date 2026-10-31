@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Medical Bill Generator | Pharmacy GST Invoice Maker (PDF) – DawaBill</title>
+<meta name="description" content="Free medical bill generator for Indian chemists: make pharmacy GST invoices with batch, expiry, MRP, discount, CGST/SGST and amount in words. Download PDF (A4 or 80mm). No login.">
+<link rel="canonical" href="https://wildsouleast.github.io/dawabill/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f7a4f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DawaBill">
+<meta property="og:title" content="Free Medical Bill Generator | Pharmacy GST Invoice Maker (PDF) – DawaBill">
+<meta property="og:description" content="Free medical bill generator for Indian chemists: make pharmacy GST invoices with batch, expiry, MRP, discount, CGST/SGST and amount in words. Download PDF (A4 or 80mm). No login.">
+<meta property="og:url" content="https://wildsouleast.github.io/dawabill/">
+<meta property="og:image" content="https://wildsouleast.github.io/dawabill/og.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "DawaBill – Free Medical Bill Generator", "url": "https://wildsouleast.github.io/dawabill/", "description": "Free medical bill generator for Indian chemists: make pharmacy GST invoices with batch, expiry, MRP, discount, CGST/SGST and amount in words. Download PDF (A4 or 80mm). No login.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "inLanguage": ["en-IN", "hi-IN"], "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this medical bill generator really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. DawaBill is free to use with no login and no limit on bills. The site is supported by ads."}}, {"@type": "Question", "name": "Where are my bills and shop details saved?", "acceptedAnswer": {"@type": "Answer", "text": "Only in your own browser (localStorage) on the phone or computer you use. Nothing is uploaded to our server. If you clear browser data or change phone, saved bills are gone, so keep the PDFs you need."}}, {"@type": "Question", "name": "How is GST calculated on medicine MRP?", "acceptedAnswer": {"@type": "Answer", "text": "MRP printed on medicines already includes GST. So the tool takes the amount after discount and works backwards: taxable value = amount × 100 ÷ (100 + GST%). The GST is split equally into CGST and SGST. If your rates are without GST, untick “MRP includes GST” and GST is added on top."}}, {"@type": "Question", "name": "Which GST rate should I use for medicines?", "acceptedAnswer": {"@type": "Answer", "text": "Check the rate for each product's HSN code with your CA or on the GST portal. As per the GST Council's 56th meeting (effective 22 September 2025), most medicines moved to 5% and some life-saving drugs to nil. The tool lets you pick 0%, 5%, 12% or 18% for every item."}}, {"@type": "Question", "name": "Can I print on a thermal printer?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose “80mm receipt” and press Print or Download PDF. The receipt layout fits common 80 mm thermal printers. For a normal printer choose A4."}}, {"@type": "Question", "name": "Is a bill without GSTIN valid?", "acceptedAnswer": {"@type": "Answer", "text": "If you are not GST-registered, leave GSTIN empty and the bill prints as a “Cash memo / Bill”. With a GSTIN it prints as a “Tax invoice”. Your CA can tell you what your shop needs."}}, {"@type": "Question", "name": "Does the invoice number go up automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every saved or downloaded bill moves the counter to the next number (INV-0001, INV-0002…). You can change the prefix and the next number any time."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site noprint"><div class="wrap">
+<a class="logo" href=""><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f7a4f"/><path d="M9 7h10l4 4v14H9z" fill="#fff"/><path d="M19 7v4h4" fill="#cfe9dc"/><rect x="14" y="13" width="4" height="10" rx="1" fill="#0f7a4f"/><rect x="11" y="16" width="10" height="4" rx="1" fill="#0f7a4f"/></svg><span>Dawa<b>Bill</b></span></a>
+<nav class="main" aria-label="Main"><a href="" aria-current=page>Bill Maker</a><a href="gst-calculator/">GST Calculator</a><a href="medicine-expiry-checker/">Expiry Checker</a></nav>
+<button id="langBtn" class="lang" type="button">हिंदी</button>
+</div></header>
+<main id="main">
+
+<div class="wrap">
+<section class="hero">
+<h1>Free Medical Bill Generator – Pharmacy GST Invoice Maker</h1>
+<p>Make a clean medical store bill in under a minute: medicine name, batch, expiry, MRP, discount and GST with automatic CGST/SGST, round-off and amount in words. Download a PDF or print on A4 or an 80&nbsp;mm thermal printer. Free, no login, and your data stays on your device.</p>
+<ul class="badges"><li>100% free</li><li>No login</li><li>PDF + Print</li><li>A4 &amp; 80mm</li><li>हिंदी / English</li></ul>
+</section>
+<!-- AD SLOT: home-top — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="home-top" aria-hidden="true">Advertisement</div>
+<form id="billForm" autocomplete="on">
+<section class="card" id="shopCard" aria-labelledby="hShop">
+<h2 id="hShop"><span data-i18n="shopDetails">Shop details</span> <small>· <span data-i18n="savedDevice">saved on this device only</span></small></h2>
+<div class="grid g2">
+<div><label for="shopName" data-i18n="shopName">Medical store name</label><input id="shopName" placeholder="e.g. Shree Ram Medical Hall" autocomplete="organization"></div>
+<div><label for="shopPhone" data-i18n="shopPhone">Phone</label><input id="shopPhone" inputmode="tel" autocomplete="tel"></div>
+<div style="grid-column:1/-1"><label for="shopAddr" data-i18n="shopAddr">Address</label><input id="shopAddr" autocomplete="street-address"></div>
+<div><label for="gstin" data-i18n="gstin">GSTIN (optional)</label><input id="gstin" maxlength="15" style="text-transform:uppercase"></div>
+<div><label for="dl" data-i18n="dl">Drug licence no. (optional)</label><input id="dl"></div>
+<div><label for="logoIn" data-i18n="logo">Logo (optional)</label><input id="logoIn" type="file" accept="image/*"></div>
+<div style="display:flex;align-items:flex-end"><button type="button" id="logoRm" class="btn small danger" data-i18n="removeLogo" hidden>Remove logo</button></div>
+</div>
+</section>
+
+<section class="card" id="billCard" aria-labelledby="hBill">
+<h2 id="hBill" data-i18n="billDetails">Bill details</h2>
+<div class="grid g3">
+<div><label for="invNo" data-i18n="invNo">Invoice no.</label><input id="invNo"></div>
+<div><label for="date" data-i18n="date">Date</label><input id="date" type="date"></div>
+<div><label for="payMode" data-i18n="payMode">Payment</label><select id="payMode"><option value="cash" data-i18n="cash">Cash</option><option value="upi" data-i18n="upi">UPI</option><option value="card" data-i18n="card">Card</option><option value="credit" data-i18n="credit">Credit</option></select></div>
+<div><label for="custName" data-i18n="custName">Customer name (optional)</label><input id="custName" autocomplete="off"></div>
+<div><label for="custPhone" data-i18n="custPhone">Customer phone (optional)</label><input id="custPhone" inputmode="tel" autocomplete="off"></div>
+<div><label for="doctor" data-i18n="doctor">Doctor name (optional)</label><input id="doctor" autocomplete="off"></div>
+</div>
+<details style="margin-top:10px"><summary style="font-size:.9rem">Invoice numbering / बिल नंबर सेटिंग</summary>
+<div class="grid g2" style="padding-bottom:12px"><div><label for="prefix" data-i18n="invPrefix">Invoice prefix</label><input id="prefix"></div><div><label for="nextNo" data-i18n="nextNo">Next number</label><input id="nextNo" type="number" min="1" inputmode="numeric"></div></div>
+</details>
+</section>
+
+<section class="card" aria-labelledby="hItems">
+<h2 id="hItems" data-i18n="items">Medicines</h2>
+<div id="items"></div>
+<button type="button" id="addItem" class="btn ghost" data-i18n="addItem">+ Add medicine</button>
+<div class="grid g2" style="margin-top:14px">
+<div>
+<label class="check"><input type="checkbox" id="inclusive" checked> <span data-i18n="inclusive">MRP includes GST (normal for medicines)</span></label>
+<label class="check" style="margin-top:6px"><input type="checkbox" id="roundoff" checked> <span data-i18n="roundoff">Round off to nearest rupee</span></label>
+<div style="margin-top:10px"><label for="notes" data-i18n="notes">Note on bill (optional)</label><input id="notes"></div>
+</div>
+<div><div class="totals" id="totals" aria-live="polite"></div><div class="words" id="words"></div></div>
+</div>
+</section>
+</form>
+
+<!-- AD SLOT: home-middle — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot noprint" data-ad-slot="home-middle" aria-hidden="true">Advertisement</div>
+
+<section class="card" aria-labelledby="hPrev">
+<h2 id="hPrev" data-i18n="preview">Bill preview</h2>
+<div class="row-actions" style="margin:0 0 10px">
+<div class="seg" role="group" aria-label="Bill size"><button type="button" data-layout="a4" aria-pressed="true" data-i18n="a4">A4</button><button type="button" data-layout="thermal" aria-pressed="false" data-i18n="thermal">80mm receipt</button></div>
+<button type="button" id="btnPdf2" class="btn" data-i18n="pdf">Download PDF</button>
+<button type="button" id="btnPrint" class="btn ghost" data-i18n="print">Print</button>
+<button type="button" id="btnShare" class="btn ghost" data-i18n="share">WhatsApp text</button>
+</div>
+<div class="preview-box" id="previewBox"><div class="preview-scale" id="previewScale"><div id="invoice" class="invoice"></div></div></div>
+</section>
+
+<section class="card" aria-labelledby="hRecent">
+<h2 id="hRecent" data-i18n="recent">Recent bills</h2>
+<ul class="recent" id="recent"></ul>
+</section>
+
+<span id="h2pSrc" data-src="vendor/html2pdf.bundle.min.js" hidden></span>
+
+<article class="content">
+<h2>How to make a medical store bill online (3 steps)</h2>
+<ol>
+<li><b>Fill your shop details once</b> — store name, address, phone, and optionally GSTIN, drug licence number and logo. They are remembered on this device.</li>
+<li><b>Add medicines</b> — name, batch number, expiry (MM/YY), quantity, MRP, discount % and GST %. Totals, CGST/SGST, round-off and amount in words update instantly. An expired batch is flagged in red.</li>
+<li><b>Download PDF or Print</b> — pick A4 for a full invoice or 80&nbsp;mm for a thermal receipt. The bill is saved in “Recent bills” and the invoice number moves to the next one.</li>
+</ol>
+<h2 lang="hi">मेडिकल स्टोर का बिल ऑनलाइन कैसे बनाएँ</h2>
+<ol lang="hi">
+<li><b>दुकान की जानकारी एक बार भरें</b> — नाम, पता, फ़ोन, और चाहें तो GSTIN, ड्रग लाइसेंस नंबर और लोगो। ये इसी फ़ोन में याद रहते हैं।</li>
+<li><b>दवाइयाँ जोड़ें</b> — नाम, बैच, एक्सपायरी (MM/YY), मात्रा, MRP, छूट % और GST %। कुल राशि, CGST/SGST, राउंड ऑफ और राशि शब्दों में अपने-आप बनती है। एक्सपायर्ड बैच लाल रंग में दिखता है।</li>
+<li><b>PDF डाउनलोड या प्रिंट करें</b> — पूरे बिल के लिए A4 या थर्मल रसीद के लिए 80mm चुनें। बिल “हाल के बिल” में सेव हो जाता है।</li>
+</ol>
+<h2>What is on the bill</h2>
+<p>Shop name and address, GSTIN and drug licence number (if given), invoice number and date, customer and doctor name (optional), each medicine with batch, expiry, quantity, MRP, discount, GST rate and amount, a GST summary per slab with CGST and SGST, round-off, total payable and the amount in words in the Indian system (lakh, crore). With a GSTIN the heading is “Tax Invoice”; without it, “Cash Memo / Bill”.</p>
+<!-- AD SLOT: home-content — paste the AdSense <ins> unit here after approval; keep the reserved height -->
+<div class="ad-slot tall noprint" data-ad-slot="home-content" aria-hidden="true">Advertisement</div>
+<h2>Frequently asked questions</h2>
+<details><summary>Is this medical bill generator really free?</summary><p>Yes. DawaBill is free to use with no login and no limit on bills. The site is supported by ads.</p><p class="hi" lang="hi"><b>क्या यह मेडिकल बिल जनरेटर सच में फ्री है?</b><br>हाँ, बिल्कुल फ्री है। न लॉगिन चाहिए, न बिलों की कोई सीमा। साइट विज्ञापनों से चलती है।</p></details><details><summary>Where are my bills and shop details saved?</summary><p>Only in your own browser (localStorage) on the phone or computer you use. Nothing is uploaded to our server. If you clear browser data or change phone, saved bills are gone, so keep the PDFs you need.</p><p class="hi" lang="hi"><b>मेरे बिल और दुकान की जानकारी कहाँ सेव होती है?</b><br>सिर्फ आपके अपने फ़ोन/कंप्यूटर के ब्राउज़र में। हमारे सर्वर पर कुछ नहीं जाता। ब्राउज़र डेटा साफ़ करने या फ़ोन बदलने पर सेव बिल चले जाते हैं, इसलिए ज़रूरी PDF रख लें।</p></details><details><summary>How is GST calculated on medicine MRP?</summary><p>MRP printed on medicines already includes GST. So the tool takes the amount after discount and works backwards: taxable value = amount × 100 ÷ (100 + GST%). The GST is split equally into CGST and SGST. If your rates are without GST, untick “MRP includes GST” and GST is added on top.</p><p class="hi" lang="hi"><b>दवा के MRP पर GST कैसे निकलता है?</b><br>दवा का MRP पहले से GST सहित होता है। टूल छूट के बाद की राशि से उल्टा हिसाब लगाता है: कर योग्य राशि = राशि × 100 ÷ (100 + GST%)। GST आधा CGST और आधा SGST में बँटता है। अगर आपकी रेट GST के बिना है तो “MRP में GST शामिल है” का टिक हटा दें।</p></details><details><summary>Which GST rate should I use for medicines?</summary><p>Check the rate for each product's HSN code with your CA or on the GST portal. As per the GST Council's 56th meeting (effective 22 September 2025), most medicines moved to 5% and some life-saving drugs to nil. The tool lets you pick 0%, 5%, 12% or 18% for every item.</p><p class="hi" lang="hi"><b>दवाओं पर कौन सा GST रेट लगाएँ?</b><br>हर प्रोडक्ट के HSN कोड का रेट अपने CA या GST पोर्टल से जाँच लें। GST काउंसिल की 56वीं बैठक (22 सितंबर 2025 से लागू) के अनुसार ज़्यादातर दवाएँ 5% पर और कुछ जीवनरक्षक दवाएँ 0% पर आ गईं। टूल में हर आइटम के लिए 0%, 5%, 12% या 18% चुन सकते हैं।</p></details><details><summary>Can I print on a thermal printer?</summary><p>Yes. Choose “80mm receipt” and press Print or Download PDF. The receipt layout fits common 80 mm thermal printers. For a normal printer choose A4.</p><p class="hi" lang="hi"><b>क्या थर्मल प्रिंटर पर प्रिंट हो सकता है?</b><br>हाँ। “80mm रसीद” चुनें और प्रिंट या PDF डाउनलोड दबाएँ। यह 80mm थर्मल प्रिंटर के लिए है। साधारण प्रिंटर के लिए A4 चुनें।</p></details><details><summary>Is a bill without GSTIN valid?</summary><p>If you are not GST-registered, leave GSTIN empty and the bill prints as a “Cash memo / Bill”. With a GSTIN it prints as a “Tax invoice”. Your CA can tell you what your shop needs.</p><p class="hi" lang="hi"><b>बिना GSTIN का बिल चल सकता है?</b><br>अगर आप GST में रजिस्टर्ड नहीं हैं तो GSTIN खाली छोड़ें, बिल “कैश मेमो / बिल” के नाम से बनेगा। GSTIN डालने पर “टैक्स इनवॉइस” बनेगा। आपकी दुकान को क्या चाहिए, यह आपके CA बताएँगे।</p></details><details><summary>Does the invoice number go up automatically?</summary><p>Yes. Every saved or downloaded bill moves the counter to the next number (INV-0001, INV-0002…). You can change the prefix and the next number any time.</p><p class="hi" lang="hi"><b>क्या बिल नंबर अपने-आप बढ़ता है?</b><br>हाँ। हर सेव या डाउनलोड किए बिल के बाद नंबर अगला हो जाता है (INV-0001, INV-0002…)। प्रीफ़िक्स और अगला नंबर कभी भी बदल सकते हैं।</p></details>
+<p class="note">GST rates change from time to time. Source for the September 2025 change: <a href="https://gstcouncil.gov.in/sites/default/files/2025-09/press_release_press_information_bureau_0.pdf" rel="noopener">GST Council 56th meeting press release (PIB)</a>. DawaBill is a billing tool only and does not give medical or tax advice.</p>
+<h2>More free tools for chemists</h2>
+<ul><li><a href="gst-calculator/">GST calculator for medicines</a> — split any amount into taxable value, CGST and SGST.</li>
+<li><a href="medicine-expiry-checker/">Medicine expiry checker &amp; stock expiry list</a> — see what has expired and what expires in 30/90/180 days.</li></ul>
+</article>
+</div>
+<div class="sticky-bar noprint"><div class="wrap"><span class="sum"><span class="lbl"><span data-i18n="payable">Total payable</span>: </span><span id="barSum">₹0.00</span></span>
+<button type="button" id="btnSave" class="btn ghost small" data-i18n="save">Save bill</button>
+<button type="button" id="btnNew" class="btn ghost small" data-i18n="newBill">New bill</button>
+<button type="button" id="btnPdf" class="btn small" data-i18n="pdf">Download PDF</button></div></div>
+<style id="pageStyle"></style>
+
+</main>
+<footer class="site noprint"><div class="wrap cols">
+<div><b>DawaBill</b> — free billing tools for Indian medical stores and pharmacies. Works in your browser; your bills stay on your device.<br><span class="muted" style="color:#9fb8ab">Tools only. Nothing on this site is medical advice.</span></div>
+<div><b>Tools</b><ul><li><a href="">Medical bill generator</a></li><li><a href="gst-calculator/">GST calculator for medicines</a></li><li><a href="medicine-expiry-checker/">Medicine expiry checker</a></li></ul></div>
+<div><b>Site</b><ul><li><a href="about/">About</a></li><li><a href="contact/">Contact</a></li><li><a href="privacy-policy/">Privacy policy</a></li><li><a href="terms/">Terms of use</a></li></ul></div>
+<div style="grid-column:1/-1;color:#9fb8ab">© <span id="yr">2026</span> DawaBill</div>
+</div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="print-root"></div>
+<script src="i18n.js"></script><script src="calc.js"></script><script src="common.js"></script><script src="bill.js"></script>
+</body>
+</html>
